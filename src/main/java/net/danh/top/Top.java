@@ -10,6 +10,7 @@ import net.milkbowl.vault.economy.Economy;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.Objects;
 import java.util.logging.Level;
 
 public final class Top extends JavaPlugin {
@@ -46,10 +47,12 @@ public final class Top extends JavaPlugin {
         if (getServer().getPluginManager().isPluginEnabled("MythicMobs")) {
             getLogger().log(Level.INFO, "Hooked with MythicMobs");
         }
+
         getServer().getPluginManager().registerEvents(new Join(), this);
         getServer().getPluginManager().registerEvents(new Kill(), this);
         getServer().getPluginManager().registerEvents(new Break(), this);
-        getCommand("top").setExecutor(new Commands());
+        Objects.requireNonNull(getCommand("top")).setExecutor(new Commands());
+        Objects.requireNonNull(getCommand("danhnhau")).setExecutor(new Commands());
         Files.getInstance().createconfig();
     }
 
