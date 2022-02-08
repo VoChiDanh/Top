@@ -1,0 +1,9 @@
+name: Top
+version: '${project.version}'
+main: net.danh.top.Top
+api-version: 1.13
+softdepend:
+  - Vault
+  - PlaceholderAPI
+  - MythicMobs
+authors: [ VoChiDanh ]
