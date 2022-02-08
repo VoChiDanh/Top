@@ -57,6 +57,5 @@ public final class Top extends JavaPlugin {
     public void onDisable() {
         Files.getInstance().savedata();
         Files.getInstance().saveconfig();
-        Files.getInstance().savelanguage();
     }
 }
