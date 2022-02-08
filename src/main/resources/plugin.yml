@@ -6,4 +6,9 @@ softdepend:
   - Vault
   - PlaceholderAPI
   - MythicMobs
+  - PvPManager
 authors: [ VoChiDanh ]
+commands:
+  top:
+  danhnhau:
+
