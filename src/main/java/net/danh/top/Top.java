@@ -48,6 +48,10 @@ public final class Top extends JavaPlugin {
             getLogger().log(Level.INFO, "Hooked with MythicMobs");
         }
 
+        if (getServer().getPluginManager().isPluginEnabled("PvPManager")) {
+            getLogger().log(Level.INFO, "Hooked with PvPManager");
+        }
+
         getServer().getPluginManager().registerEvents(new Join(), this);
         getServer().getPluginManager().registerEvents(new Kill(), this);
         getServer().getPluginManager().registerEvents(new Break(), this);
