@@ -74,22 +74,31 @@ public class Commands implements CommandExecutor {
         if (label.equalsIgnoreCase("danhnhau")) {
             if (sender instanceof Player) {
                 for (ItemStack item : Objects.requireNonNull(((Player) sender).getPlayer()).getInventory().getContents()) {
-                    if (item.getType() != Material.ACACIA_LOG
-                            || item.getType() != Material.BIRCH_LOG
-                            || item.getType() != Material.DARK_OAK_LOG
-                            || item.getType() != Material.JUNGLE_LOG
-                            || item.getType() != Material.OAK_LOG
-                            || item.getType() != Material.SPRUCE_LOG) {
-                        continue;
-                    }
-                    if (item.getAmount() < 5) {
-                        continue;
-                    }
+                    if (item != null) {
 
-                    if (item.getAmount() == 5) {
-                        ((Player) sender).getPlayer().getInventory().remove(item);
+                        if (item.getType() == Material.ACACIA_LOG
+                                || item.getType() == Material.BIRCH_LOG
+                                || item.getType() == Material.DARK_OAK_LOG
+                                || item.getType() == Material.JUNGLE_LOG
+                                || item.getType() == Material.OAK_LOG
+                                || item.getType() == Material.SPRUCE_LOG) {
+
+
+                            if (item.getAmount() > 5) {
+
+                                if (item.getAmount() == 5) {
+                                    ((Player) sender).getPlayer().getInventory().remove(item);
+                                } else {
+                                    item.setAmount(item.getAmount() - 5);
+                                }
+                            } else {
+                                continue;
+                            }
+                        } else {
+                            continue;
+                        }
                     } else {
-                        item.setAmount(item.getAmount() - 5);
+                        continue;
                     }
                     break;
                 }
@@ -97,7 +106,7 @@ public class Commands implements CommandExecutor {
                 PlayerHandler ph = pvpmanager.getPlayerHandler();
                 PvPlayer pvpPlayer = ph.get(((Player) sender).getPlayer());
                 pvpPlayer.setPvP(!pvpPlayer.hasPvPEnabled());
-                if (pvpPlayer.hasPvPEnabled()){
+                if (pvpPlayer.hasPvPEnabled()) {
                     sender.sendMessage(Files.getInstance().convert("&aBạn đã bật PvP"));
                 } else {
                     sender.sendMessage(Files.getInstance().convert("&aBạn đã &ctắt&a PvP"));
