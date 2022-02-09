@@ -46,7 +46,9 @@ public class Kill implements Listener {
         }
         if (mob instanceof Monster || mob instanceof Animals) {
             Files.getInstance().addKill(p, 1);
-            Top.economy.depositPlayer(p, Files.getInstance().getRandomNumber(min, max));
+            Integer money = Files.getInstance().getRandomNumber(min, max);
+            Top.economy.depositPlayer(p, money);
+            p.sendMessage(Files.getInstance().convert("&aBạn nhận được $" + money));
         }
     }
 
@@ -73,7 +75,9 @@ public class Kill implements Listener {
             }
         }
         Files.getInstance().addKill(p, 1);
-        Top.economy.depositPlayer(p, Files.getInstance().getRandomNumber(min, max));
+        Integer money = Files.getInstance().getRandomNumber(min, max);
+        Top.economy.depositPlayer(p, money);
+        p.sendMessage(Files.getInstance().convert("&aBạn nhận được $" + money));
     }
 }
 
