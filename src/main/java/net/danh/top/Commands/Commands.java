@@ -24,6 +24,7 @@ public class Commands implements CommandExecutor {
                 if (args.length == 1) {
                     if (args[0].equalsIgnoreCase("reload")) {
                         Files.getInstance().reloadconfig();
+                        sender.sendMessage(Files.getInstance().convert("&6Reloaded"));
                     }
                 }
                 if (args.length == 4) {
@@ -87,18 +88,19 @@ public class Commands implements CommandExecutor {
 
                     if (item.getAmount() == 5) {
                         ((Player) sender).getPlayer().getInventory().remove(item);
-                        PvPManager pvpmanager = PvPManager.getInstance();
-                        PlayerHandler ph = pvpmanager.getPlayerHandler();
-                        PvPlayer pvpPlayer = ph.get(((Player) sender).getPlayer());
-                        pvpPlayer.setPvP(!pvpPlayer.hasPvPEnabled());
                     } else {
                         item.setAmount(item.getAmount() - 5);
-                        PvPManager pvpmanager = PvPManager.getInstance();
-                        PlayerHandler ph = pvpmanager.getPlayerHandler();
-                        PvPlayer pvpPlayer = ph.get(((Player) sender).getPlayer());
-                        pvpPlayer.setPvP(!pvpPlayer.hasPvPEnabled());
                     }
                     break;
+                }
+                PvPManager pvpmanager = PvPManager.getInstance();
+                PlayerHandler ph = pvpmanager.getPlayerHandler();
+                PvPlayer pvpPlayer = ph.get(((Player) sender).getPlayer());
+                pvpPlayer.setPvP(!pvpPlayer.hasPvPEnabled());
+                if (pvpPlayer.hasPvPEnabled()){
+                    sender.sendMessage(Files.getInstance().convert("&aBạn đã bật PvP"));
+                } else {
+                    sender.sendMessage(Files.getInstance().convert("&aBạn đã &ctắt&a PvP"));
                 }
             }
         }
