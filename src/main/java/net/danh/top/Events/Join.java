@@ -13,7 +13,7 @@ public class Join implements Listener {
         Player p = e.getPlayer();
         if (Files.getInstance().getBlocks(p) == 0 && Files.getInstance().getKill(p) == 0) {
             Files.getInstance().setBlocks(p, 0);
-            Files.getInstance().setKill(p ,0);
+            Files.getInstance().setKill(p, 0);
         }
     }
 }

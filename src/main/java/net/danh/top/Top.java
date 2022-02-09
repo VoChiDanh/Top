@@ -15,8 +15,8 @@ import java.util.logging.Level;
 
 public final class Top extends JavaPlugin {
 
-    private static Top instance;
     public static Economy economy;
+    private static Top instance;
 
     public static Top getInstance() {
         return instance;

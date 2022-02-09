@@ -9,7 +9,7 @@ import org.bukkit.event.block.BlockBreakEvent;
 public class Break implements Listener {
 
     @EventHandler
-    public void onBreak(BlockBreakEvent e){
+    public void onBreak(BlockBreakEvent e) {
         Player p = e.getPlayer();
         Files.getInstance().addBlocks(p, 1);
     }

@@ -64,7 +64,6 @@ public class Files {
     }
 
 
-
     public void savedata() {
         try {
             data.save(dataFile);
@@ -86,7 +85,7 @@ public class Files {
         savedata();
     }
 
-    public void removeBlocks(Player p, Integer number){
+    public void removeBlocks(Player p, Integer number) {
         getdata().set("players." + p.getName() + ".Blocks", getBlocks(p) - number);
         savedata();
     }
@@ -105,7 +104,7 @@ public class Files {
         savedata();
     }
 
-    public void removeKill(Player p, Integer number){
+    public void removeKill(Player p, Integer number) {
         getdata().set("players." + p.getName() + ".Kills", getKill(p) - number);
         savedata();
     }
